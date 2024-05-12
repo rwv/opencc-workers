@@ -45,14 +45,18 @@ export class Translator extends OpenAPIRoute {
 		data: Record<string, any>
 	) {
 		const { from, to, text } = data.query;
+		console.log(`Translating ${text} from ${from} to ${to}`);
 		const converterKey = `${from}-${to}`;
 		let converter = Translator.converters.get(converterKey);
 		if (!converter) {
+			console.log(`Failed to find converter for ${converterKey}, creating new converter`)
 			converter = OpenCC.Converter({ from, to });
 			Translator.converters.set(converterKey, converter);
 		}
 
 		const converted = converter(text);
+
+		console.log(`Converted text: ${converted}`);
 
 		return new Response(
             converted,
