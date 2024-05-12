@@ -8,6 +8,9 @@ dependencies:
   '@cloudflare/itty-router-openapi':
     specifier: ^1.0.1
     version: 1.1.1
+  opencc-js:
+    specifier: ^1.0.5
+    version: 1.0.5
 
 devDependencies:
   '@cloudflare/workers-types':
@@ -643,6 +646,10 @@ packages:
     resolution: {integrity: sha512-ha/kTOLhMQL7MvS9Abu/cpCXx5qwHQ++88YkUzn1CGfmM8JvCOG/4ZE6tRsexgXRFaoJrcwLyf81H2Y/CXALtA==}
     dependencies:
       yaml: 2.4.2
+    dev: false
+
+  /opencc-js@1.0.5:
+    resolution: {integrity: sha512-LD+1SoNnZdlRwtYTjnQdFrSVCAaYpuDqL5CkmOaHOkKoKh7mFxUicLTRVNLU5C+Jmi1vXQ3QL4jWdgSaa4sKjg==}
     dev: false
 
   /path-parse@1.0.7:
