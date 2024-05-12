@@ -10,7 +10,7 @@ This is a Cloudflare Workers project that provides a simple API to translate tex
 ## Usage
 
 ```
-https://opencc-workers.example.workers.dev/translate?query=漢語&from=tw&to=cn
+https://opencc-workers.example.workers.dev/translate?text=漢語&from=tw&to=cn
 ```
 
 ## Development

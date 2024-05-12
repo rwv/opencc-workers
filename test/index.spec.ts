@@ -10,7 +10,7 @@ import worker from "../src";
 describe("translate", () => {
   it("translate from tw to cn", async () => {
     const query = {
-      query: "漢語",
+      text: "漢語",
       from: "tw",
       to: "cn",
     };
@@ -18,7 +18,7 @@ describe("translate", () => {
     const parameters = new URLSearchParams();
     parameters.set("from", query.from);
     parameters.set("to", query.to);
-    parameters.set("query", query.query);
+    parameters.set("text", query.text);
 
     const request = new Request(
       "http://example.com/translate?" + parameters.toString()
@@ -36,7 +36,7 @@ describe("translate", () => {
 
   it("translate from cn to tw", async () => {
     const query = {
-      query: "汉语",
+      text: "汉语",
       from: "cn",
       to: "tw",
     };
@@ -44,7 +44,7 @@ describe("translate", () => {
     const parameters = new URLSearchParams();
     parameters.set("from", query.from);
     parameters.set("to", query.to);
-    parameters.set("query", query.query);
+    parameters.set("text", query.text);
 
     const request = new Request(
       "http://example.com/translate?" + parameters.toString()

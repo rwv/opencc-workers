@@ -11,7 +11,7 @@ export class Translator extends OpenAPIRoute {
 		tags: ["Translators"],
 		summary: "Translate text from TW to CN",
 		parameters: {
-			query: Query(Str, {
+			text: Query(Str, {
                 description: "The text to translate",
 				required: true,
 				example: "漢語",
@@ -44,7 +44,7 @@ export class Translator extends OpenAPIRoute {
 		context: any,
 		data: Record<string, any>
 	) {
-		const { from, to, query } = data.query;
+		const { from, to, text } = data.query;
 		const converterKey = `${from}-${to}`;
 		let converter = Translator.converters.get(converterKey);
 		if (!converter) {
@@ -52,7 +52,7 @@ export class Translator extends OpenAPIRoute {
 			Translator.converters.set(converterKey, converter);
 		}
 
-		const converted = converter(query);
+		const converted = converter(text);
 
 		return new Response(
             converted,
