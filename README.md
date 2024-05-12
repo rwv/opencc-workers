@@ -1,6 +1,7 @@
 # opencc-workers
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rwv/opencc-workers/deploy.yml)
+![Swagger Validator](https://img.shields.io/swagger/valid/3.0?specUrl=https%3A%2F%2Fopencc-workers.rwv.workers.dev%2Fopenapi.json)
 
 
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/rwv/opencc-workers)
