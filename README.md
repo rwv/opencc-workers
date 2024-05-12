@@ -9,6 +9,8 @@ This is a Cloudflare Workers project that provides a simple API to translate tex
 
 ## Usage
 
+OpenAPI Documentation: https://opencc-workers.rwv.dev/
+
 ```
 https://opencc-workers.example.workers.dev/translate?text=漢語&from=tw&to=cn
 ```
