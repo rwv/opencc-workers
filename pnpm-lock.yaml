@@ -19,6 +19,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.5.7
     version: 20.12.11
+  '@types/opencc-js':
+    specifier: ^1.0.3
+    version: 1.0.3
   '@types/service-worker-mock':
     specifier: ^2.0.1
     version: 2.0.4
@@ -357,6 +360,10 @@ packages:
     resolution: {integrity: sha512-vDg9PZ/zi+Nqp6boSOT7plNuthRugEKixDv5sFTIpkE89MmNtEArAShI4mxuX2+UrLEe9pxC1vm2cjm9YlWbJw==}
     dependencies:
       undici-types: 5.26.5
+    dev: true
+
+  /@types/opencc-js@1.0.3:
+    resolution: {integrity: sha512-TENp7YkI2hNlc4dplhivSHj0hU4DORCK56VY7rniaSfA5f87uD3uv+kPIRuH9h64TGv976iVFi4gEHZZtS2y8Q==}
     dev: true
 
   /@types/service-worker-mock@2.0.4:
