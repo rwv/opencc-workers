@@ -40,9 +40,15 @@ export class Translator extends OpenAPIRoute {
 
 	async handle(
 		request: Request,
-		env: any,
-		context: any,
-		data: Record<string, any>
+		env: Env,
+		context: ExecutionContext,
+		data: {
+			query: {
+				text: string;
+				from: string;
+				to: string;
+			};
+		}
 	) {
 		const { from, to, text } = data.query;
 		console.log(`Translating ${text} from ${from} to ${to}`);
