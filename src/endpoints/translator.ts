@@ -18,12 +18,12 @@ export class Translator extends OpenAPIRoute {
             }),
             from: Query(Str, {
                 description: "The language code of the text to translate",
-                values: ["tw", "cn", "hk", "jp", "twp"],
+                values: ["tw", "cn", "hk", "jp", "twp", "t"],
 				default: "tw",
             }),
             to: Query(Str, {
                 description: "The language code to translate the text to",
-                values: ["tw", "cn", "hk", "jp", "twp"],
+                values: ["tw", "cn", "hk", "jp", "twp", "t"],
 				default: "cn",
             }),
 		},
@@ -32,6 +32,13 @@ export class Translator extends OpenAPIRoute {
 				description: "Returns a single task if found",
 				contentType: "text/plain; charset=utf-8",
                 schema: Str,
+			},
+			"400": {
+				description: "Invalid from or to language",
+				schema: {
+					success: Boolean,
+					error: Str
+				},
 			},
 		},
 	};
@@ -51,6 +58,27 @@ export class Translator extends OpenAPIRoute {
 		}
 	) {
 		const { from, to, text } = data.query;
+
+		if (from !== "tw" && from !== "cn" && from !== "hk" && from !== "jp" && from !== "twp" && from !== "t") {
+			return Response.json(
+				{
+					success: false,
+					error: "Invalid from language",
+				},
+				{ status: 400 }
+			)
+		}
+
+		if (to !== "tw" && to !== "cn" && to !== "hk" && to !== "jp" && to !== "twp" && to !== "t") {
+			return Response.json(
+				{
+					success: false,
+					error: "Invalid to language",
+				},
+				{ status: 400 }
+			)
+		}
+
 		console.log(`Translating ${text} from ${from} to ${to}`);
 		const converterKey = `${from}-${to}`;
 		let converter = Translator.converters.get(converterKey);
