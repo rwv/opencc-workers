@@ -29,7 +29,7 @@ export class Translator extends OpenAPIRoute {
 		},
 		responses: {
 			"200": {
-				description: "Returns a single task if found",
+				description: "The translated text",
 				contentType: "text/plain; charset=utf-8",
                 schema: Str,
 			},
