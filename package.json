@@ -20,7 +20,7 @@
 		"@cloudflare/vitest-pool-workers": "^0.2.11",
 		"@cloudflare/workers-types": "^4.20240512.0",
 		"@eslint/js": "^8.57.0",
-		"@types/node": "^20.5.7",
+		"@types/node": "^20.12.12",
 		"@types/opencc-js": "^1.0.3",
 		"@types/service-worker-mock": "^2.0.1",
 		"eslint": "^8.57.0",
