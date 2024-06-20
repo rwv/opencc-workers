@@ -13,21 +13,14 @@ jobs:
     if: github.event.pull_request.user.login == 'dependabot[bot]'
 
     steps:
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@v1.5.1
-        with:
-          app_id: ${{ secrets.BOT_APP_ID }}
-          private_key: ${{ secrets.BOT_PRIVATE_KEY }}
-
       - name: Dependabot metadata
         id: dependabot_metadata
         uses: dependabot/fetch-metadata@v1.2.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Authenticate cli
-        run: echo "${{ steps.generate_token.outputs.token }}" | gh auth login --with-token
+      - name: Authenticate cli with a PAT
+        run: echo "${{ secrets.DEPENDABOT_TOKEN }}" | gh auth login --with-token
 
       - name: Enable auto-merge for Dependabot PRs
         if: steps.dependabot_metadata.outputs.update-type == 'version-update:semver-minor' || steps.dependabot_metadata.outputs.update-type == 'version-update:semver-patch'
